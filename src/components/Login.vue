@@ -1,11 +1,11 @@
 <template lang="html">
   <form class="login form">
     <div class="field">
-      <label for="id_username">Username</label>
+      <label for="id_username">Email</label>
       <input
         v-model="email"
         type="text"
-        placeholder="Username"
+        placeholder="Email"
         autofocus="autofocus"
         maxlength="150"
         id="id_username">
