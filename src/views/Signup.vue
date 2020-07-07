@@ -1,38 +1,55 @@
 <template lang="html">
-  <form class="login form">
-    <div class="field">
-      <label for="id_username">Email</label>
-      <input
-        v-model="email"
-        type="text"
-        placeholder="Email"
-        autofocus="autofocus"
-        maxlength="150"
-        id="id_username">
-    </div>
-    <div class="field">
-      <label for="id_password">Password</label>
-      <input
-        v-model="password1"
-        type="password"
-        placeholder="Password"
-        id="id_password">
-    </div>
-    <div class="field">
-      <label for="id_password">Password(repeat)</label>
-      <input
-        v-model="password2"
-        type="password"
-        placeholder="Password"
-        id="id_password">
-    </div>
-    <button
+  <v-form>
+    <v-container>
+      <v-row>
+       <v-col cols="12" sm="12" md="12" lg="6">
+  
+        <p  class="mx-auto" justify-center>Login</p>
+     <v-text-field
+            v-model="email"
+            solo
+            label="Prepend inner"
+            prepend-inner-icon="mdi-map-marker"
+          ></v-text-field>
+
+       <v-text-field
+            v-model="password1"
+            :type="show1 ? 'text' : 'password'"
+            name="input-10-1"
+            @click:append="show1 = !show1"
+            solo
+            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+            label="Password"
+            prepend-inner-icon="mdi-map-marker"
+         ></v-text-field>
+
+         <v-text-field
+            v-model="password2"
+            :type="show2 ? 'text' : 'password'"
+            name="input-10-1"
+            @click:append="show2 = !show2"
+            solo
+            :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+            label="Repeat Password"
+            prepend-inner-icon="mdi-map-marker"
+         ></v-text-field>
+
+  <v-btn
+      :loading="loading3"
+      :disabled="loading3"
+      color="blue-grey"
+      class="ma-2 white--text"
       @click.prevent="register"
-      class="button primary"
-      type="submit">
-      Log In
-    </button>
-  </form>
+    >
+      signup
+      <v-icon right dark>mdi-account</v-icon>
+    </v-btn>
+  <p class="ma-3 ma-md-1">Have an account ?</p> 
+ <v-btn> <router-link to="/" tag='span'>Login</router-link> </v-btn>
+    </v-col>
+      </v-row>
+    </v-container>
+  </v-form>
 </template>
 
 <script>

@@ -2,7 +2,6 @@
   <div class="home">
     <p>Login / Signup</p>
     <Login/>
-    <router-link to="/about">Signup</router-link>
   </div>
 </template>
 
