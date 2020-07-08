@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Signup from '../views/Signup.vue'
 import Login from '@/components/Login';
+import Songs from '@/components/Songs'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ Vue.use(VueRouter)
     path: '/signup',
     name: 'Signup',
     component: Signup
+  },
+  {
+    path: '/songs',
+    name: 'Songs',
+    component: Songs
   }
 ]
 
