@@ -1,9 +1,56 @@
 <template lang="html">
 <ul v-if="posts && posts.length">
-    <li v-for="post of posts" :key="post.title">
-      <p>{{post.title}}</p>
-      <audio>{{post.song}}</audio>
-    </li>
+    <v-li v-for="post in posts" :key="post.title">  
+          <v-flex md3>
+          <v-card
+           max-width="300"
+          class="ma-3"
+          >
+            <v-img
+              :src="post.album"
+              class="white--text align-end"
+              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+              height="200px"
+            >
+              <v-card-title v-text="post.title"></v-card-title>
+            </v-img>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn icon>
+                <v-icon>mdi-heart</v-icon>
+              </v-btn>
+
+              <v-btn icon>
+                <v-icon>mdi-bookmark</v-icon>
+              </v-btn>
+
+              <v-btn icon>
+                <v-icon>mdi-share-variant</v-icon>
+              </v-btn>
+            </v-card-actions>
+            </v-card>
+  </v-flex>
+            <v-snackbar
+      v-model="snackbar"
+      :timeout="timeout"
+    >
+    <vuetify-audio :file="post.song" color="success" :ended="audioFinish"></vuetify-audio>
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="blue"
+          text
+          v-bind="attrs"
+          @click="snackbar = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+
+    </v-li>
   </ul>
 </template>
 
@@ -14,9 +61,14 @@ export default {
  data() {
     return {
       posts: [],
-      errors: []
+      errors: [],
+      file: '',
+      snackbar:false,
     }
   },
+  components: {
+        VuetifyAudio: () => import('vuetify-audio'),
+    },
 
 mounted() {
         const base = {
@@ -50,4 +102,10 @@ mounted() {
 </script>
 
 <style lang="css">
+ul
+{
+	list-style: none;
+}
+
+
 </style>

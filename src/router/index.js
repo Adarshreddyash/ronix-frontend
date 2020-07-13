@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Signup from '../views/Signup.vue'
-import Login from '@/components/Login';
+import Portfolio from '@/components/Portfolio';
 import Songs from '@/components/Songs'
 
 Vue.use(VueRouter)
@@ -10,7 +10,7 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Login
+    component: Portfolio
   },
   {
     path: '/signup',
