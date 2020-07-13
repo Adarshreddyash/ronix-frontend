@@ -16,9 +16,9 @@ export default new Vuex.Store({
     APIData:'',
     endpoints: {
       // TODO: Remove hardcoding of dev endpoints
-      obtainJWT: 'http://127.0.0.1:8000/api/v1/auth/obtain_token/',
-      refreshJWT: 'http://127.0.0.1:8000/api/v1/auth/refresh_token/',
-      baseUrl: 'http://127.0.0.1:8000'
+      obtainJWT: 'https://ronix-backend.herokuapp.com/api/v1/auth/obtain_token/',
+      refreshJWT: 'https://ronix-backend.herokuapp.com/api/v1/auth/refresh_token/',
+      baseUrl: 'https://ronix-backend.herokuapp.com/'
     }
   },
 

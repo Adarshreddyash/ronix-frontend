@@ -73,7 +73,7 @@ mounted() {
           }
           const axiosInstance = axios.create(base)
           axiosInstance({
-            url: "http://127.0.0.1:8000/api/v1/songs/",
+            url: "https://ronix-backend.herokuapp.com/api/v1/songs/",
             method: "get",
             params: {}
           })
