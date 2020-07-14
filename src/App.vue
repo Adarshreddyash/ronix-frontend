@@ -13,19 +13,15 @@
       <v-spacer></v-spacer>
    
      <v-btn icon>
+        <router-link to="/" tag="icon"><v-icon>mdi-home</v-icon></router-link>
+      </v-btn>
+    
+      <v-btn icon>
+         <router-link to="/songs" tag="icon"><v-icon>mdi-playlist-music</v-icon></router-link>
+      </v-btn>
+    
+      <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-    
-      <v-btn icon>
-        <v-icon>mdi-compass</v-icon>
-      </v-btn>
-    
-      <v-btn icon>
-        <v-icon>mdi-apps</v-icon>
-      </v-btn>
-
-    <v-btn icon>
-        <v-icon>mdi-refresh</v-icon>
       </v-btn>
 
       <v-btn icon>

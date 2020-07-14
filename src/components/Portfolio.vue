@@ -3,10 +3,10 @@
 <v-container fluid class="mb-15">
   <v-layout row>
     <v-flex md6 lg6 sm12 xs12 x6>
-      <img src="../assets/Chilling-at-Home/main_files/chilling.svg" width="95%" class="pl-6">
+      <img src="../assets/Chilling-at-Home/main_files/chilling.svg" width="95%">
      </v-flex>
-    <v-flex md6 lg6 sm12 xs12 x6>
-      <h1 class="white--text font-weight-medium mt-16 d-sm-pl-6 d-xs-pl-6">Roni<span class="red--text">X</span></h1>
+    <v-flex md6 lg6 sm12 xs12 x6 pl-3>
+      <h1 class="white--text font-weight-medium mt-16 d-sm-pl-8 d-xs-pl-6">Roni<span class="red--text">X</span></h1>
       <h2 class="white--text d-sm-pl-6">Discover great music <span class="yellow--text">that rules out </span></h2>
       <p class="white--text d-sm-pl-6">Music is eternal that has limitless potential in grasping and treating of great forces on the earth.However to get started login to your existing account or create one if you dont have.</p>
       <v-dialog v-model="dialog" scrollable max-width="300px">

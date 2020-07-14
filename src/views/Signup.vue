@@ -8,8 +8,8 @@
      <v-text-field
             v-model="email"
             solo
-            label="Prepend inner"
-            prepend-inner-icon="mdi-map-marker"
+            label="Email"
+            prepend-inner-icon="mdi-email"
           ></v-text-field>
 
        <v-text-field
@@ -20,7 +20,7 @@
             solo
             :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
             label="Password"
-            prepend-inner-icon="mdi-map-marker"
+            prepend-inner-icon="mdi-lock"
          ></v-text-field>
 
          <v-text-field
@@ -31,7 +31,7 @@
             solo
             :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
             label="Repeat Password"
-            prepend-inner-icon="mdi-map-marker"
+            prepend-inner-icon="mdi-lock-reset"
          ></v-text-field>
 
   <v-btn
@@ -70,7 +70,7 @@ export default {
         password1: this.password1,
         password2:this.password2
       }
-      axios.post('http://127.0.0.1:8000/rest-auth/registration/', payload)
+      axios.post('https://ronix-backend.herokuapp.com/rest-auth/registration/', payload)
       
   }
 }
