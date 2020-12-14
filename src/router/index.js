@@ -21,7 +21,13 @@ Vue.use(VueRouter)
     path: '/songs',
     name: 'Songs',
     component: Songs
-  }
+  },
+
+  /*{
+    path: '',
+    name: '',
+    component: ,
+  }*/
 ]
 
 const router = new VueRouter({

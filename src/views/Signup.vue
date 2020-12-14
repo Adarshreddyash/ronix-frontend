@@ -70,7 +70,7 @@ export default {
         password1: this.password1,
         password2:this.password2
       }
-      axios.post('https://ronix-backend.herokuapp.com/rest-auth/registration/', payload)
+      axios.post('http://127.0.0.1:8000/rest-auth/registration/', payload)
       
   }
 }
