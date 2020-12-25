@@ -23,17 +23,16 @@
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
   
-  <div v-if="isLoggedin">
+  <div v-show="logus">
    <v-menu offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn 
           v-bind="attrs"
           v-on="on"
           icon
-          @click="userdetails()"
         >
         <v-avatar size="27">
-          <img icon :src="userdetails.avatar" alt="Profile">
+          <img icon :src="$store.state.authUser.avatar" alt="Profile">
         </v-avatar>
 
         </v-btn>
@@ -44,9 +43,9 @@
         <v-list-item
         >
          <v-list-item-content>
-              <v-list-item-title><v-icon class="ma-1">mdi-account-circle</v-icon>{{ userdetails.profile_name }}</v-list-item-title>
+              <v-list-item-title><v-icon class="ma-1">mdi-account-circle</v-icon>{{ userDetails.profile_name }}</v-list-item-title>
                <v-divider></v-divider>
-              <v-list-item-subtitle><v-icon class="ma-1">mdi-email-check</v-icon>{{ userdetails.email }}</v-list-item-subtitle>
+              <v-list-item-subtitle><v-icon class="ma-1">mdi-email-check</v-icon>{{ userDetails.email }}</v-list-item-subtitle>
             </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -60,9 +59,9 @@
     </v-menu>
 </div>
 
-<div v-else>
+<div>
   <v-btn icon>
-    <v-icon>mdi-magnify</v-icon>
+    <v-icon>{{ userDetail }}</v-icon>
   </v-btn>
 </div>
     </v-app-bar>
@@ -73,7 +72,6 @@
   </v-app>
 </template>
 <script>
-import axios from 'axios'
 
 export default {
   name: 'App',
@@ -96,37 +94,19 @@ export default {
       isLoggedin: false,
       }
   },
- 
 
- mounted() {
-     const base = {
-            baseURL: this.$store.state.endpoints.baseUrl,
-            headers: {
-            // Set your Authorization to 'JWT', not Bearer!!!
-              Authorization: `JWT ${this.$store.state.jwt}`,
-              'Content-Type': 'application/json'
-            },
-            xhrFields: {
-                withCredentials: true
-            }
-          }
-          const axiosInstance = axios.create(base)
-          axiosInstance({
-            url: "http://127.0.0.1:8000/rest-auth/user/",
-            method: "get",
-            params: {}
-          })
-            .then((response) => {
-               this.userdetails = response.data
-               this.isLoggedin = true
-               console.log("Successfully loaded user details")
-            })
+  methods:{
+  },
+  
+  computed:{
+    logus(){
+      return this.$store.state.isAuthenticated
+    },
 
-        .catch(e => {
-      this.errors.push(e)
-      console.log("Error loading user details")
-    })
- }
+    userDetails(){
+      return this.$store.state.authUser
+    }
+  }
 };
 </script>
 
