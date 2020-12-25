@@ -132,7 +132,8 @@ export default {
           })
             .then((response) => {
               this.$store.commit("setAuthUser",
-                {authUser: response.data, isAuthenticated: true}
+                {authUser: response.data, isAuthenticated: true},
+                sessionStorage.setItem(`userInfo`, JSON.stringify(response.data))
               )
               this.$router.push({name: 'Songs'})
             })

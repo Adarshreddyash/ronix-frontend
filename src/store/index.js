@@ -10,8 +10,8 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 export default new Vuex.Store({
   state: {
-    authUser: {},
-    isAuthenticated: false,
+    authUser:JSON.parse(sessionStorage.getItem(`userInfo`))||{},
+    isAuthenticated: !!localStorage.getItem('token'),
     jwt: localStorage.getItem('token'),
     APIData:'',
     endpoints: {
@@ -37,6 +37,6 @@ export default new Vuex.Store({
     removeToken(state) {
       localStorage.removeItem('token');
       state.jwt = null;
-    }
+    },
   }
 })
