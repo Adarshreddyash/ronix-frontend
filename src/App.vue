@@ -2,16 +2,21 @@
   <v-app>
     <v-app-bar
       app
-      dark
       dense
     >
       <div class="d-flex align-center">
-       <v-toolbar-title >Ronix</v-toolbar-title>
+          <v-img
+          class="mx-2"
+          src="https://i.imgur.com/qgGY4tB.png"
+          max-height="40"
+          max-width="40"
+          contain
+          ></v-img>
       </div>
 
       <v-spacer></v-spacer>
    
-     <v-btn icon>
+     <v-btn v-show="$route.path != '/'" icon>
         <router-link to="/" tag="icon"><v-icon>mdi-home</v-icon></router-link>
       </v-btn>
     
@@ -31,8 +36,12 @@
           v-on="on"
           icon
         >
-        <v-avatar size="27">
-          <img icon :src="$store.state.authUser.avatar" alt="Profile">
+        <v-avatar size="27" v-if="$store.state.authUser.avatar">
+          <img icon :src="$store.state.authUser.avatar" alt="Profile avatar">
+        </v-avatar>
+
+        <v-avatar size="27" v-else>
+          <img icon src="https://image.flaticon.com/icons/png/128/483/483361.png" alt="Profile avatar">
         </v-avatar>
 
         </v-btn>
@@ -57,12 +66,6 @@
               Log out
             </v-btn>
     </v-menu>
-</div>
-
-<div>
-  <v-btn icon>
-    <v-icon>{{ userDetail }}</v-icon>
-  </v-btn>
 </div>
     </v-app-bar>
 
@@ -90,7 +93,6 @@ export default {
         'Blog',
         'Contact Us',
       ],
-      userdetails:[],
       isLoggedin: false,
       }
   },
