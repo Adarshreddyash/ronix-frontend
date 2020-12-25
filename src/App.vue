@@ -30,7 +30,6 @@
           v-bind="attrs"
           v-on="on"
           icon
-          @click="userdetails()"
         >
         <v-avatar size="27">
           <img icon :src="userdetails.avatar" alt="Profile">
@@ -98,7 +97,7 @@ export default {
   },
  
 
- mounted() {
+ mounted:function() {
      const base = {
             baseURL: this.$store.state.endpoints.baseUrl,
             headers: {
