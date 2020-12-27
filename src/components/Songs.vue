@@ -16,10 +16,16 @@
       width="150px"
       :src="song.album"
     >
-      <button @click="play(song)" :class="(song.src ==
+      <v-btn
+       class="mx-9 my-9"
+       fab
+       dark
+       x-small
+       color="green"
+       @click="play(song)" :class="(song.src ==
        current.src) ? 'song playing': 'song'">
-       play
-       </button>
+       <v-icon size="24">mdi-play-circle</v-icon>
+      </v-btn>
     </v-img>
    <div class="overflow_prevent">{{ song.title}}</div>
    <div class="caption overflow_prevent" style="line-height: 100%;">{{ song.artist}}</div>
@@ -40,7 +46,7 @@
     <p class="song-title" style="float:left; padding-right:20px">{{current.title}} - <span>{{current.artist}}</span></p>
        <div class="control">
          <a class="prev pointer" @click="prev"><v-icon size="44">mdi-skip-previous</v-icon></a>
-         <a class="play pointer" v-if='!isPlaying' @click="play()"><v-icon size="54">mdi-play-circle</v-icon></a>
+         <a class="play pointer" v-if='!isPlaying' @click="play()"><v-icon green size="54">mdi-play-circle</v-icon></a>
          <a class="pause pointer" v-else @click="pause()"><v-icon size="54">mdi-pause-circle</v-icon></a>         
          <a class="next pointer" @click="next()"><v-icon size="44">mdi-skip-next</v-icon></a>
        </div>
