@@ -20,10 +20,6 @@
       </v-btn>
 
       <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
         <v-badge color="green" content="3" overlap>
           <v-icon>mdi-bell</v-icon>
         </v-badge>
@@ -32,7 +28,7 @@
       <div v-show="logus">
         <v-menu offset-y>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn v-bind="attrs" v-on="on" icon>
+            <v-btn v-bind="attrs" v-on="on" text>
               <v-avatar size="27" v-if="$store.state.authUser.avatar">
                 <img icon :src="$store.state.authUser.avatar" alt="Profile avatar" />
               </v-avatar>

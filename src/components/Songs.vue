@@ -1,10 +1,13 @@
-<template>
+<template v-slot:body="{ songs }">
 <v-container>
+  <h3 class="my-4">Latest Picks</h3>
     <v-layout wrap style="margin-bottom:84px">
       <v-flex xs4 md2
         v-for="song in songs"
         :key="song.title"
-        pb-16>
+         pb-16
+         @mouseover="selectItem(song)"
+         @mouseleave="unSelectItem(song)">
         <v-card
     class="mx-auto"
     max-width="100"
@@ -16,6 +19,7 @@
       width="150px"
       :src="song.album"
     >
+     <div v-if="song === selectedItem">
       <v-btn
        class="mx-9 my-9"
        fab
@@ -24,8 +28,10 @@
        color="green"
        @click="play(song)" :class="(song.src ==
        current.src) ? 'song playing': 'song'">
-       <v-icon size="24">mdi-play-circle</v-icon>
+       <v-icon v-if="selectedItem !== current" size="24">mdi-play-circle</v-icon>
+       <v-icon v-else size="24">mdi-pause-circle</v-icon>
       </v-btn>
+     </div>
     </v-img>
    <div class="overflow_prevent">{{ song.title}}</div>
    <div class="caption overflow_prevent" style="line-height: 100%;">{{ song.artist}}</div>
@@ -73,6 +79,7 @@ export default {
       isPlaying:false,
       file: '',
       multiLine: true,
+      selectedItem: false,
       snackbar: true,
       player: new Audio()
     }
@@ -122,6 +129,13 @@ export default {
      this.play(this.current);
 
    },
+   selectItem (song) {
+      this.selectedItem = song
+
+    },
+    unSelectItem() {
+      this.selectedItem = false
+    },
   
   },
  created() {
