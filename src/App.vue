@@ -155,9 +155,6 @@ export default {
 </script>
 
 <style lang="css">
-.v-snack__wrapper.theme--dark {
-  background-color: #333333c7 !important;
-}
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {
