@@ -7,6 +7,10 @@ Vue.use(Vuex)
 // Make Axios handle Django CSRF
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+//axios.defaults.baseURL = this.$store.state.endpoints.baseUrl;
+//axios.defaults.headers.common['Authorization'] = `JWT ${this.$store.state.jwt}`;
+//axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
 
 export default new Vuex.Store({
   state: {

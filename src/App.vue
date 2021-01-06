@@ -49,7 +49,7 @@
                 <v-btn
                   color="green"
                   x-small
-                  v-show="$store.state.authUser.avatar"
+                  v-show="!$store.state.authUser.avatar"
                   outlined
                   :loading="isSelecting"
                   @click="onButtonClick"
@@ -110,6 +110,7 @@ export default {
     uploadImage(event) {
       let img = new FormData();
       img.append("avatar", event.target.files[0]);
+      
       const base = {
         baseURL: this.$store.state.endpoints.baseUrl,
         headers: {

@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Signup from '../views/Signup.vue'
 import Portfolio from '@/components/Portfolio';
 import Songs from '@/components/Songs'
+import upload_songs from '../views/upload_song.vue'
+
 
 Vue.use(VueRouter)
 
@@ -23,11 +25,11 @@ Vue.use(VueRouter)
     component: Songs
   },
 
-  /*{
-    path: '',
-    name: '',
-    component: ,
-  }*/
+  {
+    path: '/upload',
+    name: 'upload',
+    component: upload_songs,
+  }
 ]
 
 const router = new VueRouter({
